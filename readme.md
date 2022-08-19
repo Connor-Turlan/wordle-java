@@ -18,3 +18,8 @@
     -   Hint: Use a free API (https://dictionaryapi.dev/)
 -   Generate an output of the word/guesses and copy it to the user's clipboard so they can share it on socials
     -   Bonus: Use emojis
+
+## Future Plans
+
+-   Show which characters are correct or incorrect.
+-   Validate the user's guess is 5 characters long.
