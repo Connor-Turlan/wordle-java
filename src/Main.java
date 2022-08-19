@@ -4,5 +4,8 @@ public class Main {
 
 		System.out.println("Creating new game.");
 		Wordle game = new Wordle();
+
+		boolean win = game.Play();
+		System.out.println(win ? "Congratulations! :D" : "Bad luck. :'(");
 	}
 }
