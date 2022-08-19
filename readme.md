@@ -18,3 +18,5 @@
     -   Hint: Use a free API (https://dictionaryapi.dev/)
 -   Generate an output of the word/guesses and copy it to the user's clipboard so they can share it on socials
     -   Bonus: Use emojis
+
+C:\Program Files\Java\json
