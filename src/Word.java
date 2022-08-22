@@ -12,9 +12,6 @@ public class Word {
 			// parse the JSON file.
 			Object obj = new JSONParser().parse(new FileReader(path));
 			JSONArray words = (JSONArray)obj;
-			
-			// DEBUG - print the first word.
-			System.out.println(words.get(0));
 
 			// get a random word.
 			Random random = new Random();

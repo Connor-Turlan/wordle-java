@@ -30,7 +30,6 @@ public class Wordle {
 
 	public Wordle() {
 		word = Word.GetRandom();
-		System.out.println(word);
 	};
 
 	public String Compare(String guess) {
