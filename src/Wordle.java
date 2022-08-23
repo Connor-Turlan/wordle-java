@@ -26,7 +26,7 @@ public class Wordle {
 	private String gs = "\u001B[32m\u2588\u001B[0m";
 	private String ys = "\u001B[33m\u2588\u001B[0m";
 	private String rs = "\u001B[31m\u2588\u001B[0m";
-	private String correctString = gs + ' ' + gs + ' ' + gs + ' ' + gs + ' ' + gs + ' ';
+	private String correctString = gs+' '+gs+' '+gs+' '+gs+' '+gs+' ';
 
 	public Wordle() {
 		word = Word.GetRandom();
@@ -46,7 +46,6 @@ public class Wordle {
 				compString += rs + " ";
 			}
 		}
-
 		return compString;
 	};
 
@@ -55,20 +54,20 @@ public class Wordle {
 		String guess = s.next();
 
 		while (guess.length() != 5) {
-			System.out.println("Guess must be 5 characters long.");
+			System.out.println("Guess must be 5 letters long.");
 			guess = s.next();
 		}
 
 		String difference = Compare(guess);
-		Boolean correct = difference.equals(correctString);
-		System.out.println("Your guess was: " + difference);
-		return correct;
+		System.out.println(difference);
+		return difference.equals(correctString);
 	};
 
 	public boolean Play() {
 		for (int i = 0; i < 6; i++) {
 			if (Guess()) { return true; }
 		}
+		System.out.println("The word was " + word);
 		return false;
 	};
 }

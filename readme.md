@@ -21,5 +21,5 @@
 
 ## Future Plans
 
--   Show which characters are correct or incorrect.
--   Validate the user's guess is 5 characters long.
+-   Show the user the dictionary definition of a correct word.
+-   Block the user from entering previously blocked letters.
