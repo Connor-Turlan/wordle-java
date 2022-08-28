@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /* 
@@ -23,10 +24,17 @@ public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
 public class Wordle {
 	private String word;
-	private String gs = "\u001B[32m\u2588\u001B[0m";
-	private String ys = "\u001B[33m\u2588\u001B[0m";
-	private String rs = "\u001B[31m\u2588\u001B[0m";
+	private ArrayList<String> guesses = new ArrayList<String>();
+
+	// ANSI codes for green, yellow, red, and white squares.
+	private static String sqr = "\u2588"; 
+	private String gs = "\u001B[32m" + sqr + "\u001B[0m";
+	private String ys = "\u001B[33m" + sqr + "\u001B[0m";
+	private String rs = "\u001B[31m" + sqr + "\u001B[0m";
+	private String ws = "\u001B[37m" + sqr + "\u001B[0m";
+
 	private String correctString = gs+' '+gs+' '+gs+' '+gs+' '+gs+' ';
+	private String blankLine = ws+' '+ws+' '+ws+' '+ws+' '+ws+' ';
 
 	public Wordle() {
 		word = Word.GetRandom();
@@ -59,15 +67,40 @@ public class Wordle {
 		}
 
 		String difference = Compare(guess);
+		guesses.add(guess + ": " + difference);
+
 		System.out.println(difference);
 		return difference.equals(correctString);
 	};
 
+	public void printGuesses(int round) {
+		for (int i = 0; i < 6; i++) {
+			if (i < guesses.size()) {
+				System.out.println(guesses.get(i));
+			} else {
+				System.out.println(blankLine);
+			} 
+		}
+	}
+
 	public boolean Play() {
 		for (int i = 0; i < 6; i++) {
-			if (Guess()) { return true; }
+			if (Guess()) { 
+				printGuesses(i);
+				return true; 
+			}
 		}
+		printGuesses(6);
 		System.out.println("The word was " + word);
 		return false;
 	};
+
+	private void updateHistory(boolean isWin) {
+		// write to the score history file the win and loss count.
+	}
+
+	private String readHistory() {
+		// read from the score history file the win and loss count.
+		return "test";
+	}
 }
